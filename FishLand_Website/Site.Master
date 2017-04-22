@@ -4,16 +4,106 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title><%: Page.Title %> FishLand Shop</title>
+
+    <script type="text/javascript" src="js/jquery.js"></script>     <!-- JQuery Library -->
+    <script type="text/javascript" src="js/banner.js"></script>     <!-- JQuery Plugin -->
+
+    <script type="text/javascript">
+
+        var image1 = new Image()
+        image1.src = "images/dish6.png"
+
+        var image2 = new Image()
+        image2.src = "images/dish8.png"
+
+        var image3 = new Image()
+        image3.src = "images/fishFingers2.png"
+    </script>
+
+    <link href="master.css" rel="stylesheet" type="text/css" media="screen" />
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div id="wrapper">
+
+        <div id="top">
+               <div id="logo">
+                   <img src="images/logo9.png" />
+               </div>
+
+               <div id="name">
+                   <p>FishLand</p>
+                   <ul>
+                       <li>home of well done fish!</li>
+                   </ul>
+               </div>
+
+               <div id="social-media">
+                   <p>Connect With Us</p>
+                   <ul>
+                       <li><a href="http://www.facebook.com"><img src="images/facebookIkon.png" /></a></li>
+                       <li><a href="http://www.youtube.com"><img src="images/youtubeIcon.png" /></a></li>
+                       <li><a href="http://www.twitter.com"><img src="images/twitterIcon.png" /></a></li>
+                   </ul>
+                   <p>Contact Us Today: 011 235 8597 </p>
+
+                   <div id="two">
+                       <ul>
+                           <li><a href="register.aspx"> Register </a></li>
+                           <li><a href="login.aspx"> Login </a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+        
+           <div id="topnav">
+               <ul>
+                   <li><a href="index.aspx">HOME</a></li>
+                   <li><a href="menu.aspx">MENU</a></li>
+                   <li><a href="order.aspx">ORDER ONLINE</a></li>
+                   <li><a href="About.aspx">ABOUT US</a></li>
+                   <li><a href="contact.aspx">CONTACT US</a></li>
+               </ul>
+           </div>
+
+           <div style="width:1100px;margin-left:0px;">                
+               <img alt="" class="banner" src="images/dish6.png" style="width:1100px;"/>
+                  
+               <script>
+
+                   var step = 1
+
+                   function slideImages() {
+                       if (!document.images)
+                           return
+
+                       document.images.img.src = eval("image" + step + ".src")
+
+                       if (step < 3)
+                           step++
+                       else
+                           step = 1
+                       setTimeout("slideImages()", 5000)
+                   }
+
+                   slideImages()
+
+               </script>
+           </div>
+
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
+
+        <footer>
+          <p>&copy; <%: DateTime.Now.Year %> FishLand Shop Website</p>
+        </footer>
+
     </div>
     </form>
 </body>
